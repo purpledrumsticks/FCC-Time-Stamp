@@ -1,11 +1,6 @@
 let express = require('express');
-let bodyParser = require('body-parser');
 let moment = require('moment');
 let app = express();
-
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
-
 
 app.use((req, res) => {
   let parameter = decodeURIComponent(req.path);
