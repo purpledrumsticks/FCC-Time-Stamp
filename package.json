@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "scss": "sass src/style.scss public/style.css",
+    "start": "sass src/style.scss public/style.css && nodemon server.js"
   },
   "author": "",
   "license": "ISC",

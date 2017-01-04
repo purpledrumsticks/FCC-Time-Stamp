@@ -1,20 +1,17 @@
+/*I would not have been able to figure this out without https://github.com/kevcomedia*/
 let express = require('express');
-let moment = require('moment');
+let timeStamp = require('./app/timeStamp');
+let path = require('path');
 let app = express();
 
-app.use((req, res) => {
-  let parameter = decodeURIComponent(req.path);
-  let naturalDate = moment(parameter).format("MM-DD-YYYY");
-  let unixDate = moment(parameter).unix();
+app.use('/', express.static('./public'));
 
-  let dateObject = {
-    unix: unixDate,
-    natural: naturalDate
-  };
+app.get('/:time', (req, res) => {
+  let output = timeStamp(req.path);
 
-
-  res.send(dateObject);
+  res.send(output);
 })
+
 
 app.listen(3000, () => {
   console.log('Example app is listening on port 3000');
